@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbh64dsfw3xaw"]
+
+[ext_resource type="Texture2D" uid="uid://7hpw14atvhm6" path="res://assets/bg.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://b4cel7tfe2jv5" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://fiwq18haqfld" path="res://scenes/bird.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sugp2")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_o5qli")
+
+[node name="Bird" parent="." instance=ExtResource("2_0wfyh")]
