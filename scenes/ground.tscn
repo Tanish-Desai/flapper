@@ -10,9 +10,11 @@ size = Vector2(1728, 168)
 script = ExtResource("1_mi8v4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(864, 851)
 texture = ExtResource("1_pybca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(864, 851)
 shape = SubResource("RectangleShape2D_mi8v4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

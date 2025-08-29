@@ -14,6 +14,11 @@ config/name="Flapper"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=864
+window/size/viewport_height=936
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
