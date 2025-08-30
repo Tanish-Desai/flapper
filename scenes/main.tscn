@@ -22,3 +22,5 @@ position = Vector2(1, 0)
 
 [node name="PipeTimer" type="Timer" parent="."]
 wait_time = 1.5
+
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]

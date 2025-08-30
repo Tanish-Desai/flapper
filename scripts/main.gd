@@ -27,7 +27,7 @@ func new_game():
 	score = 0
 	scroll = 0
 	pipes.clear() # clears pipe array, clear() is array function
-	generate_pipes()
+	generate_pipes() # to generate first set of pipes
 	$Bird.reset()
 
 func _input(event: InputEvent) -> void:
@@ -49,6 +49,7 @@ func start_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print("Time left:" + str($PipeTimer.time_left))
 	if game_running:
 		scroll += SCROLL_SPEED
 		if scroll >= screen_size.x:
@@ -59,7 +60,6 @@ func _process(delta: float) -> void:
 		# move pipes
 		for pipe in pipes:
 			pipe.position.x -= SCROLL_SPEED
-
 
 func _on_pipe_timer_timeout() -> void:
 	generate_pipes()
