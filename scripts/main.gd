@@ -24,6 +24,7 @@ func new_game():
 	# reset variables
 	game_running = false
 	game_over = false
+	$ScoreLabel.text = "Score: " + str(0)
 	score = 0
 	scroll = 0
 	$Ground.hit.connect(ground_hit)
@@ -74,7 +75,7 @@ func generate_pipes():
 	# By connecting to bird_hit, if the hit signal is ever emitted from pipe, then bird_hit() will be called
 	# note that the game doesn't halt here for the hit signal, it simply connects the bird_hit() function call to the hit signal i.e. bird_hit() is set to be auto-called when hit is emitted
 	pipe.hit.connect(bird_hit)
-	
+	pipe.scored.connect(scored)
 	# add_child will add the just created pipe as a child scene to the Main scene.
 	add_child(pipe)
 	pipes.append(pipe) # adds the pipe to the pipes array
@@ -100,3 +101,7 @@ func stop_game():
 	$PipeTimer.stop() # stops pipe generation
 	game_running = false
 	game_over = true # will be used later for score system and restart_game
+
+func scored():
+	score+=1
+	$ScoreLabel.text = "Score: " + str(score)
