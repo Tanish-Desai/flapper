@@ -26,7 +26,7 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
-	$Ground.hit.connect(bird_hit)
+	$Ground.hit.connect(ground_hit)
 	pipes.clear() # clears pipe array, clear() is array function
 	generate_pipes() # to generate first set of pipes
 	$Bird.reset()
@@ -83,6 +83,10 @@ func bird_hit():
 	$Bird.falling = true
 	stop_game()
 	pass #temporary pass
+
+func ground_hit():
+	$Bird.falling = false
+	stop_game()
 
 func check_top():
 	# as of now, the game will end if the bird touched the ceiling.
