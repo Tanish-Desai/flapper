@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtn64wc6iv6kg"]
+[gd_scene load_steps=5 format=3 uid="uid://dtn64wc6iv6kg"]
 
 [ext_resource type="Texture2D" uid="uid://bskhqm8lukygc" path="res://assets/pipe.png" id="1_8x3ej"]
+[ext_resource type="Script" uid="uid://b0c1nw6f0w20p" path="res://scenes/pipe.gd" id="1_arpqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
 size = Vector2(72, 524)
@@ -9,6 +10,7 @@ size = Vector2(72, 524)
 size = Vector2(78, 36)
 
 [node name="Pipe" type="Area2D"]
+script = ExtResource("1_arpqm")
 
 [node name="UpperSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -391)
@@ -36,3 +38,5 @@ shape = SubResource("RectangleShape2D_arpqm")
 [node name="LowerTip" type="CollisionShape2D" parent="."]
 position = Vector2(0, 129)
 shape = SubResource("RectangleShape2D_8p0di")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
