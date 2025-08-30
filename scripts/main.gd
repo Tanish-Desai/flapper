@@ -17,6 +17,7 @@ const PIPE_RANGE : int = 200
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_window().size
+	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	new_game()
 
 func new_game():
@@ -44,6 +45,7 @@ func start_game():
 	game_running = true
 	$Bird.flying = true
 	$Bird.flap()
+	$PipeTimer.start() #start pipe timer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
