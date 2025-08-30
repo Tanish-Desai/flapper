@@ -51,8 +51,12 @@ func _process(delta: float) -> void:
 		scroll += SCROLL_SPEED
 		if scroll >= screen_size.x:
 			scroll = 0
+			
 		# Ground position.x is relative to position that has been manually set in scene editor
 		$Ground.position.x = -scroll
+		# move pipes
+		for pipe in pipes:
+			pipe.position.x -= SCROLL_SPEED
 
 
 func _on_pipe_timer_timeout() -> void:
@@ -70,3 +74,6 @@ func generate_pipes():
 	# add_child will add the just created pipe as a child scene to the Main scene.
 	add_child(pipe)
 	pipes.append(pipe) # adds the pipe to the pipes array
+
+func bird_hit():
+	pass #temporary pass
