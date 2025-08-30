@@ -51,3 +51,20 @@ func _process(delta: float) -> void:
 			scroll = 0
 		# Ground position.x is relative to position that has been manually set in scene editor
 		$Ground.position.x = -scroll
+
+
+func _on_pipe_timer_timeout() -> void:
+	generate_pipes()
+	
+func generate_pipes():
+	var pipe = pipe_scene.instantiate()
+	pipe.position.x = screen_size.x + PIPE_DELAY
+	pipe.position.y = (screen_size.y - ground_height) / 2 + randi_range(-PIPE_RANGE, PIPE_RANGE)
+	
+	# By connecting to bird_hit, if the hit signal is ever emitted from pipe, then bird_hit() will be called
+	# note that the game doesn't halt here for the hit signal, it simply connects the bird_hit() function call to the hit signal i.e. bird_hit() is set to be auto-called when hit is emitted
+	pipe.hit.connect(bird_hit)
+	
+	# add_child will add the just created pipe as a child scene to the Main scene.
+	add_child(pipe)
+	pipes.append(pipe) # adds the pipe to the pipes array
