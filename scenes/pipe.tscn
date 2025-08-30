@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtn64wc6iv6kg"]
 
 [ext_resource type="Texture2D" uid="uid://bskhqm8lukygc" path="res://assets/pipe.png" id="1_8x3ej"]
-[ext_resource type="Script" uid="uid://b0c1nw6f0w20p" path="res://scenes/pipe.gd" id="1_arpqm"]
+[ext_resource type="Script" uid="uid://b0c1nw6f0w20p" path="res://scripts/pipe.gd" id="1_arpqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
 size = Vector2(72, 524)
