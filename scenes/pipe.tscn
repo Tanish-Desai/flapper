@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtn64wc6iv6kg"]
+[gd_scene load_steps=6 format=3 uid="uid://dtn64wc6iv6kg"]
 
 [ext_resource type="Texture2D" uid="uid://bskhqm8lukygc" path="res://assets/pipe.png" id="1_8x3ej"]
 [ext_resource type="Script" uid="uid://b0c1nw6f0w20p" path="res://scripts/pipe.gd" id="1_arpqm"]
@@ -8,6 +8,10 @@ size = Vector2(72, 524)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0di"]
 size = Vector2(78, 36)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_arpqm"]
+a = Vector2(0, -111)
+b = Vector2(0, 111)
 
 [node name="Pipe" type="Area2D"]
 script = ExtResource("1_arpqm")
@@ -39,4 +43,11 @@ shape = SubResource("RectangleShape2D_arpqm")
 position = Vector2(0, 129)
 shape = SubResource("RectangleShape2D_8p0di")
 
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(41, 0)
+shape = SubResource("SegmentShape2D_arpqm")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
