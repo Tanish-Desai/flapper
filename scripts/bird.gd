@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		# terminal velocity
 		if velocity.y > MAX_VEL:
 			velocity.y = MAX_VEL
+			
 		if flying:
 			# QUESTION: what does the rotation below do?
 			set_rotation(deg_to_rad(velocity.y * 0.05))

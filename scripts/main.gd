@@ -40,6 +40,7 @@ func _input(event: InputEvent) -> void:
 				else:
 					if $Bird.flying:
 						$Bird.flap()
+						check_top()
 
 func start_game():
 	game_running = true
@@ -79,3 +80,16 @@ func generate_pipes():
 
 func bird_hit():
 	pass #temporary pass
+
+func check_top():
+	# as of now, the game will end if the bird touched the ceiling.
+	# TODO: Add a World Boundary for the top, and skip this function
+	if $Bird.position.y < 0:
+		$Bird.falling = true
+		stop_game()
+
+func stop_game():
+	$Bird.flying = false # stop executing any flaps
+	$PipeTimer.stop() # stops pipe generation
+	game_running = false
+	game_over = false # will be used later for score system and restart_game
