@@ -79,6 +79,8 @@ func generate_pipes():
 	pipes.append(pipe) # adds the pipe to the pipes array
 
 func bird_hit():
+	$Bird.falling = true
+	stop_game()
 	pass #temporary pass
 
 func check_top():
@@ -92,4 +94,4 @@ func stop_game():
 	$Bird.flying = false # stop executing any flaps
 	$PipeTimer.stop() # stops pipe generation
 	game_running = false
-	game_over = false # will be used later for score system and restart_game
+	game_over = true # will be used later for score system and restart_game
