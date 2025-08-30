@@ -1,5 +1,8 @@
 extends Node2D
 
+# The @export exports the pipe_scene variable as a property of the Main scene that can be modified in the inspector panel. This helps the Main script to create parameter-like systems (here its the pipe scene), that can be used in code. In this particular example, I can create a new variant of the pipe scene (new design) and simply pass it here via the Inspector.
+@export var pipe_scene : PackedScene
+
 var game_running : bool
 var game_over : bool
 var scroll
