@@ -25,6 +25,8 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
+	pipes.clear() # clears pipe array, clear() is array function
+	generate_pipes()
 	$Bird.reset()
 
 func _input(event: InputEvent) -> void:
