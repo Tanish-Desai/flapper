@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbh64dsfw3xaw"]
+[gd_scene load_steps=7 format=3 uid="uid://bbh64dsfw3xaw"]
 
 [ext_resource type="Texture2D" uid="uid://7hpw14atvhm6" path="res://assets/bg.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://b4cel7tfe2jv5" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://fiwq18haqfld" path="res://scenes/bird.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dtn64wc6iv6kg" path="res://scenes/pipe.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cd2ghj2xirdxb" path="res://scenes/ground.tscn" id="4_jyhfs"]
+[ext_resource type="FontFile" uid="uid://1ywln3qpqlhg" path="res://assets/PixelOperator8.ttf" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -24,5 +25,16 @@ position = Vector2(1, 0)
 
 [node name="PipeTimer" type="Timer" parent="."]
 wait_time = 1.5
+
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 2
+offset_left = 609.0
+offset_top = 894.0
+offset_right = 829.0
+offset_bottom = 929.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 32
+text = "Score : 0"
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
