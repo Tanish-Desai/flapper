@@ -26,6 +26,7 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
+	$Ground.hit.connect(bird_hit)
 	pipes.clear() # clears pipe array, clear() is array function
 	generate_pipes() # to generate first set of pipes
 	$Bird.reset()
