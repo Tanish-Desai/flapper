@@ -40,5 +40,15 @@ text = "Score : 0"
 
 [node name="GameOver" parent="." instance=ExtResource("7_o6xl0")]
 
+[node name="TipLabel" type="Label" parent="."]
+offset_left = 242.0
+offset_top = 214.0
+offset_right = 621.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.286275)
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 30
+text = "Press LMB to fly"
+
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]

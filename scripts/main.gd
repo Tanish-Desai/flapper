@@ -30,6 +30,8 @@ func new_game():
 	$GameOver.hide()
 	# the below line tells all nodes under Main that belong to the pipes group to call queue_free() to free itself. 
 	get_tree().call_group("pipes", "queue_free")
+	
+	$TipLabel.show() # Show tip to start game
 	$Ground.hit.connect(ground_hit)
 	pipes.clear() # clears pipe array, clear() is array function
 	generate_pipes() # to generate first set of pipes
@@ -48,6 +50,7 @@ func _input(event: InputEvent) -> void:
 						check_top()
 
 func start_game():
+	$TipLabel.hide()
 	game_running = true
 	$Bird.flying = true
 	$Bird.flap()
