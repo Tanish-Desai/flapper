@@ -29,14 +29,25 @@ wait_time = 1.5
 
 [node name="ScoreLabel" type="Label" parent="."]
 z_index = 2
-offset_left = 609.0
-offset_top = 894.0
-offset_right = 829.0
-offset_bottom = 929.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 15.0
+offset_top = 854.0
+offset_right = 235.0
+offset_bottom = 889.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.47451)
 theme_override_fonts/font = ExtResource("6_tefeu")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Score : 0"
+
+[node name="MaxScore" type="Label" parent="."]
+z_index = 2
+offset_left = 15.0
+offset_top = 890.0
+offset_right = 194.0
+offset_bottom = 925.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.47451)
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 24
+text = "Max: 0"
 
 [node name="GameOver" parent="." instance=ExtResource("7_o6xl0")]
 

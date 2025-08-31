@@ -7,6 +7,7 @@ var game_running : bool
 var game_over : bool
 var scroll
 var score
+var max_score
 const SCROLL_SPEED : int = 4
 var screen_size : Vector2i
 var ground_height : int
@@ -18,6 +19,7 @@ const PIPE_RANGE : int = 200
 func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
+	max_score = 0
 	new_game()
 
 func new_game():
@@ -107,6 +109,9 @@ func stop_game():
 	$PipeTimer.stop() # stops pipe generation
 	game_running = false
 	game_over = true # will be used later for score system and restart_game
+	if max_score < score:
+		max_score = score
+		$MaxScore.text = "Max: " + str(max_score)
 	$GameOver.show()
 
 func scored():
