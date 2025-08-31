@@ -13,7 +13,7 @@ size = Vector2(78, 36)
 a = Vector2(0, -111)
 b = Vector2(0, 111)
 
-[node name="Pipe" type="Area2D"]
+[node name="Pipe" type="Area2D" groups=["pipes"]]
 script = ExtResource("1_arpqm")
 
 [node name="UpperSprite" type="Sprite2D" parent="."]
