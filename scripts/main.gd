@@ -27,6 +27,7 @@ func new_game():
 	$ScoreLabel.text = "Score: " + str(0)
 	score = 0
 	scroll = 0
+	$GameOver.hide()
 	$Ground.hit.connect(ground_hit)
 	pipes.clear() # clears pipe array, clear() is array function
 	generate_pipes() # to generate first set of pipes
@@ -101,7 +102,11 @@ func stop_game():
 	$PipeTimer.stop() # stops pipe generation
 	game_running = false
 	game_over = true # will be used later for score system and restart_game
+	$GameOver.show()
 
 func scored():
 	score+=1
 	$ScoreLabel.text = "Score: " + str(score)
+	
+func _on_game_over_restart() -> void:
+	new_game()
