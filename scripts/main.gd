@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 				# the second condition in if (is_pressed()) is to make sure the event is 'press', not 'release'
+				$Bird.get_node("whoosh").play()
 				if !game_running:
 					start_game()
 				else:
