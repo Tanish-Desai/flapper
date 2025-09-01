@@ -12,6 +12,7 @@ const SCROLL_SPEED : int = 4
 var screen_size : Vector2i
 var ground_height : int
 var fall_sound_played : bool = false
+var max_score_sound_played : bool = false
 var pipes : Array
 const PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
@@ -30,6 +31,7 @@ func new_game():
 	$ScoreLabel.text = "Score: " + str(0)
 	score = 0
 	scroll = 0
+	max_score_sound_played = false
 	$GameOver.hide()
 	# the below line tells all nodes under Main that belong to the pipes group to call queue_free() to free itself. 
 	get_tree().call_group("pipes", "queue_free")
@@ -124,6 +126,9 @@ func stop_game():
 
 func scored():
 	score+=1
+	if score > max_score and !max_score_sound_played:
+		$MaxScore_Sound.play()
+		max_score_sound_played = true
 	$ScoreLabel.text = "Score: " + str(score)
 	
 func _on_game_over_restart() -> void:
