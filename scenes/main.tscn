@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbh64dsfw3xaw"]
+[gd_scene load_steps=9 format=3 uid="uid://bbh64dsfw3xaw"]
 
 [ext_resource type="Texture2D" uid="uid://7hpw14atvhm6" path="res://assets/bg.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://b4cel7tfe2jv5" path="res://scripts/main.gd" id="1_sugp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cd2ghj2xirdxb" path="res://scenes/ground.tscn" id="4_jyhfs"]
 [ext_resource type="FontFile" uid="uid://1ywln3qpqlhg" path="res://assets/PixelOperator8.ttf" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bpgb2mxhrj68f" path="res://scenes/game_over.tscn" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://1vgjek8mexke" path="res://assets/crash_sound.mp3" id="8_tipki"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -60,6 +61,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 0.286275)
 theme_override_fonts/font = ExtResource("6_tefeu")
 theme_override_font_sizes/font_size = 30
 text = "Press LMB to fly"
+
+[node name="Fall_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tipki")
+volume_db = -15.0
+pitch_scale = 1.3
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]

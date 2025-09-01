@@ -11,6 +11,7 @@ var max_score
 const SCROLL_SPEED : int = 4
 var screen_size : Vector2i
 var ground_height : int
+var fall_sound_played : bool = false
 var pipes : Array
 const PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
@@ -91,11 +92,15 @@ func generate_pipes():
 
 func bird_hit():
 	$Bird.falling = true
+	if !fall_sound_played:
+		$Fall_Sound.play()
+		fall_sound_played = true
 	stop_game()
 	pass #temporary pass
 
 func ground_hit():
 	$Bird.falling = false
+	fall_sound_played = false
 	stop_game()
 
 func check_top():
@@ -103,6 +108,7 @@ func check_top():
 	# TODO: Add a World Boundary for the top, and skip this function
 	if $Bird.position.y < 0:
 		$Bird.falling = true
+		$Fall_Sound.play()
 		stop_game()
 
 func stop_game():
