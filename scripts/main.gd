@@ -101,6 +101,7 @@ func bird_hit():
 func ground_hit():
 	$Bird.falling = false
 	fall_sound_played = false
+	$Thud_Sound.play()
 	stop_game()
 
 func check_top():

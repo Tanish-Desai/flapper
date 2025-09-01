@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://fiwq18haqfld"]
 
-[ext_resource type="Texture2D" uid="uid://b3i3qipw61mr8" path="res://assets/bird1.png" id="1_hq4t0"]
+[ext_resource type="Texture2D" uid="uid://b3i3qipw61mr8" path="res://assets/sprites/bird1.png" id="1_hq4t0"]
 [ext_resource type="Script" uid="uid://bcb7p4a2ahhs0" path="res://scripts/bird.gd" id="1_twsrt"]
-[ext_resource type="Texture2D" uid="uid://rlr04demnnsk" path="res://assets/bird2.png" id="2_twsrt"]
-[ext_resource type="Texture2D" uid="uid://da647wbaoswto" path="res://assets/bird3.png" id="3_b7mtg"]
-[ext_resource type="AudioStream" uid="uid://c2urjyvi4alg7" path="res://assets/flappy_whoosh-43099.mp3" id="5_b7mtg"]
+[ext_resource type="Texture2D" uid="uid://rlr04demnnsk" path="res://assets/sprites/bird2.png" id="2_twsrt"]
+[ext_resource type="Texture2D" uid="uid://da647wbaoswto" path="res://assets/sprites/bird3.png" id="3_b7mtg"]
+[ext_resource type="AudioStream" uid="uid://c2urjyvi4alg7" path="res://assets/sounds/flappy_whoosh-43099.mp3" id="5_b7mtg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bdh3x"]
 animations = [{
