@@ -8,7 +8,8 @@ var game_over : bool
 var scroll
 var score
 var max_score
-const SCROLL_SPEED : int = 290
+var gameLevel : int = 1
+var SCROLL_SPEED : int = 290
 var screen_size : Vector2i
 var ground_height : int
 var fall_sound_played : bool = false
@@ -16,6 +17,7 @@ var max_score_sound_played : bool = false
 var pipes : Array
 const PIPE_DELAY : int = 100
 const PIPE_RANGE : int = 200
+const PIPE_HORIRANGE : int = 300;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -119,6 +121,7 @@ func stop_game():
 	$PipeTimer.stop() # stops pipe generation
 	game_running = false
 	game_over = true # will be used later for score system and restart_game
+	SCROLL_SPEED = 290
 	if max_score < score:
 		max_score = score
 		$MaxScore.text = "Max: " + str(max_score)
@@ -129,6 +132,7 @@ func scored():
 	if score > max_score and !max_score_sound_played:
 		$MaxScore_Sound.play()
 		max_score_sound_played = true
+	SCROLL_SPEED += score/2
 	$ScoreLabel.text = "Score: " + str(score)
 	
 func _on_game_over_restart() -> void:
