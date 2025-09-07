@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 	#print("Time left:" + str($PipeTimer.time_left))
 	if game_running:
 		scroll += SCROLL_SPEED * delta
-		if scroll >= screen_size.x:
+		if scroll >= get_viewport_rect().size.x:
 			scroll = 0
 			
 		# Ground position.x is relative to position that has been manually set in scene editor
