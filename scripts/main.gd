@@ -8,7 +8,7 @@ var game_over : bool
 var scroll
 var score
 var max_score
-const SCROLL_SPEED : int = 4
+const SCROLL_SPEED : int = 290
 var screen_size : Vector2i
 var ground_height : int
 var fall_sound_played : bool = false
@@ -66,7 +66,7 @@ func start_game():
 func _process(delta: float) -> void:
 	#print("Time left:" + str($PipeTimer.time_left))
 	if game_running:
-		scroll += SCROLL_SPEED
+		scroll += SCROLL_SPEED * delta
 		if scroll >= screen_size.x:
 			scroll = 0
 			
@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 		$Ground.position.x = -scroll
 		# move pipes
 		for pipe in pipes:
-			pipe.position.x -= SCROLL_SPEED
+			pipe.position.x -= SCROLL_SPEED * delta
 
 func _on_pipe_timer_timeout() -> void:
 	generate_pipes()
